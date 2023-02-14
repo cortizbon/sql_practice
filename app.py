@@ -63,7 +63,7 @@ with col5:
 
 
 
-query = st_ace(value='Escriba su query', language='sql', min_lines=15)
+query = st_ace(placeholder='Escriba su query', language='sql', min_lines=15)
 
 
 if st.button("Ejecutar query"):
