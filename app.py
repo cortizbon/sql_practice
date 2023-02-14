@@ -62,9 +62,11 @@ with col5:
     st.markdown("`manager`: nombre del administrador de la tienda")
 
 
-
-query = st_ace(placeholder='Escriba su query', language='sql', min_lines=15)
-
+col1, col2 = st.columns(2, [2, 1])
+with col1:
+    query = st_ace(placeholder='Escriba su query', language='sql', min_lines=15, auto_update=True)
+with col2:
+    st.code(query, language='sql')
 
 if st.button("Ejecutar query"):
     try:
