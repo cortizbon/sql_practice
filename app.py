@@ -2,6 +2,7 @@ import streamlit as st
 import sqlite3 as sq
 import pandas as pd
 import re
+from streamlit_ace import st_ace
 
 st.set_page_config(layout="wide")
 
@@ -62,7 +63,7 @@ with col5:
 
 
 
-query = st.code('Escriba su query', language='sql')
+query = st_ace(value='Escriba su query', language='sql', min_lines=15)
 
 
 if st.button("Ejecutar query"):
