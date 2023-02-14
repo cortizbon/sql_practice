@@ -18,6 +18,23 @@ def verify_query(query):
 
 st.title('SQL simulation')
 
+
+col1, col2 = st.columns([2, 1])
+with col1:
+    query = st_ace(placeholder='Escriba su query', language='sql', min_lines=15, auto_update=True)
+with col2:
+    st.code(query, language='sql')
+
+if st.button("Ejecutar query"):
+    try:
+        if verify_query(query):
+            df = query_function(query)
+            st.dataframe(df)
+        else:
+            st.text("Verifique la query. Debe empezar con la palabra SELECT.")
+    except:
+        st.text("Hay un error con la query. Verifique la sintaxis.")
+        
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
@@ -60,20 +77,3 @@ with col5:
     st.markdown("`direccion`: dirección de la tienda")
     st.markdown("`id_tienda`: identificador único de la tienda (primary key)")
     st.markdown("`manager`: nombre del administrador de la tienda")
-
-
-col1, col2 = st.columns([2, 1])
-with col1:
-    query = st_ace(placeholder='Escriba su query', language='sql', min_lines=15, auto_update=True)
-with col2:
-    st.code(query, language='sql')
-
-if st.button("Ejecutar query"):
-    try:
-        if verify_query(query):
-            df = query_function(query)
-            st.dataframe(df)
-        else:
-            st.text("Verifique la query. Debe empezar con la palabra SELECT.")
-    except:
-        st.text("Hay un error con la query. Verifique la sintaxis.")
