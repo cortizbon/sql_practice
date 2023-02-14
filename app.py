@@ -32,7 +32,7 @@ with col2:
     st.markdown("`nombre`: nombre del vendedor")
     st.markdown("`apellido`: apellido del vendedor")
     st.markdown("`edad`: edad del vendedor")
-    st.markdown("`id_cliente`: identificador único del vendedor (primary key)")
+    st.markdown("`id_vendedor`: identificador único del vendedor (primary key)")
     st.markdown("`tienda`: tienda donde trabaja el vendedor")
 
 with col3:
