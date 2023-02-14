@@ -62,7 +62,7 @@ with col5:
 
 
 
-query = st.text_area('Escriba su query')
+query = st.code('Escriba su query', language='sql)
 
 
 if st.button("Ejecutar query"):
